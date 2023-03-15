@@ -1,0 +1,25 @@
+<form class="d-flex" enctype="multipart/form-data">
+    <div class="col-4">
+        <div class="mb-3">
+            <label for="" class="form-label">Telefon  Model</label>
+            <input type="text" #name name="" #brand id="" class="form-control" placeholder="" >
+
+            <label for="" class="form-label">Telefon Adı</label>
+            <input type="text" #name name="" id="" class="form-control" placeholder="" >
+
+            <label for="" class="form-label">Fiyat</label>
+            <input type="number" #price name="" id="" class="form-control" placeholder="" >
+
+            <label for="" class="form-label">Stok</label>
+            <input type="number" #stock name="" id="" class="form-control" placeholder="" >
+
+            <label for="" class="form-label">Açıklama</label>
+            <input type="text" #descript name="" id="" class="form-control" placeholder="" >
+
+            <label for="" class="form-label">Görsel</label>
+            <input type="file" #file name="" id="" class="form-control" placeholder="" >
+
+            <button class="btn btn-success mt-3" (click)="addPhone(brand.value,name.value,price.value,stock.value,descript.value,file.value)">Yeni Ürün Ekle</button>
+        </div>
+    </div>
+</form>

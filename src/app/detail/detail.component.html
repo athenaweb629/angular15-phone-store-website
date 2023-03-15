@@ -1,0 +1,24 @@
+<h2>{{phone?.Id}}</h2>
+<hr>
+<div class="row">
+    <div class="col-6">
+        <img src="assets/images/{{phone?.Image}}" alt="" class="img-fluid">
+    </div>
+    <div class="col-6 ps-4">
+        <h3>{{phone?.Brand}}</h3>
+        <hr>
+        <span>Stock: {{phone?.Stock}}</span>
+    
+        <p>
+            {{phone?.Description}}
+        </p>
+        <div class="input-group mb-3 stock">
+            <button class="btn btn-primary" type="button "(click)="minusPhone()"  id="button-addon1">-</button>
+            <input type="number" min="0" max="{{phone?.Stock}}"#Quantity  value="{{basketNumber}}" class=" text-center bg-white text-primary" disabled placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+            <button class="btn btn-primary" type="button" (click)="plusPhone(phone?.Stock)" id="button-addon1">+</button>
+
+        </div>
+        <button class="btn btn-primary" (click)="addBasket(phone?.Id,Quantity.value)">Sepete Ekle</button>
+
+    </div>
+</div>

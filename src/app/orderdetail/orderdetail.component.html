@@ -1,0 +1,42 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="text-center mb-4 display-1">Sipariş Geçmişi</h1>
+      <div class="row">
+        <div *ngFor="let order of getOrders(); let orderIndex=index" class="col-md-6 mb-4">
+          <div class="card">
+            <div class="card-header bg-warning">
+              <h3 class="text-center">{{ orderIndex+1 }}. Sipariş Listesi</h3>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div *ngFor="let cartItem of getCarts(orderIndex);" class="col-sm-12 mb-3">
+                  <div class="row no-gutters">
+                    <div class="col-md-4">
+                      <img src="assets/images/{{cartItem.Phone.Image}}" class="card-img" alt="{{cartItem.Phone.Brand}}">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">{{cartItem.Phone.Brand}}</h5>
+                        <p class="card-text">Adet : {{cartItem.Quantity}}</p>
+                        <p class="card-text">Ücret: {{cartItem.TotalPrice}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h5 class="card-title text-center display-6">Toplam Tutar: {{ order.TotalPrice }}</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 mt-4">
+          <hr>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <button type="button" class="btn btn-success btn-lg" routerLink="/phones">Yeni Sipariş Ver</button>
+      </div>
+    </div>
+  </div>
+</div>
+

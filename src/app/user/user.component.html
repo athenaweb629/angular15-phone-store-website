@@ -1,0 +1,15 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+        <h1 class="text-center">Kullanıcı Listesi</h1>
+        <br>
+        <div class="col-4 text-center" *ngFor="let item of users()">
+            <h2 >{{item.FullName}}</h2>
+            <hr>
+            <img  style="height: 100px;" src="assets/images/{{item.ImageUrl}}">
+            <br>
+            <button class="btn btn-info mt-3" routerLink="/orderdetail/{{item.Id}}">Sipariş Geçmişi</button>
+        </div>
+    </div>
+
+</div>

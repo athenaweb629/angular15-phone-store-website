@@ -1,0 +1,57 @@
+
+<nav class="navbar navbar-expand-lg bg-primary">
+  <div class="container">
+    <a class="navbar-brand text-white fs-1" href="#">PhoneStore</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="col-12">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto  mb-2 mb-lg-0 px-5">
+          <li class="nav-item mx-3">
+            <a
+              class="nav-link active text-white fs-4"
+              aria-current="page"
+              routerLink="/home">Anasayfa</a
+            >
+          </li>
+          <li class="nav-item mx-3">
+            <a
+              class="nav-link active text-white fs-4"
+              aria-current="page"
+              routerLink="/users">Siparişlerim</a
+            >
+          </li>
+      
+          <li class="nav-item mx-3">
+            <a class="nav-link text-white fs-4" routerLink="/about">Kurumsal</a>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link text-white fs-4" routerLink="/contact">İletişim</a>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link text-white fs-4" routerLink="/cart"><i class="bi bi-cart-fill"></i> Sepet<span>({{CartLength()}})</span></a>
+          </li>
+        </ul>
+        <form class="d-flex mx-auto" role="search">
+          <input
+            class="form-control me-2 bg-white"
+            type="search"
+            placeholder="Telefon arayın."
+            aria-label="Search"
+          />
+          <button class="btn btn-danger" type="submit">Ara</button>
+        </form>
+      </div>
+    </div>
+    
+  </div>
+</nav>
