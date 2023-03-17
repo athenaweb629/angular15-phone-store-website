@@ -48,7 +48,7 @@ export class CartComponent {
    )
     
     if (this.control == true) {
-
+      if(CartList.filter(x=>x.Status==true).length>0){
       this.order = new Order(this.user, this.list, this.totalPrice);
       this.totalPrice = 0;
       OrderList.push(this.order)
@@ -57,6 +57,10 @@ export class CartComponent {
       })
       this.router.navigate(['/ordersuccess']);
       Swal.fire("Sipariş Onaylandı!", "Satın alım başarıyla gerçekleşti!", "success");
+    }
+    else{
+      Swal.fire("Sipariş Onaylanmadı!", "Sepette herhangi bir ürün bulunmuyor!", "error");
+    }
     }
     else{
       CartList.filter(x => x.Status == true).forEach((item) => {
@@ -99,6 +103,7 @@ export class CartComponent {
     });
   }
   cancelOrder() {
+    if(CartList.filter(x=>x.Status==true).length>0){
     this.Swal.fire({
       title: 'Sepeti temizlemek istediginizden emin misiniz ?',
       icon: 'warning',
@@ -125,6 +130,10 @@ export class CartComponent {
       }
     });
   }
+  else{
+    Swal.fire("Sepet iptal edilemedi!", "Sepetinizde herhangi bir ürün bulunmuyor!", "error");
+  }
+}
 
   getCartList() {
 
