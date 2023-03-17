@@ -12,7 +12,7 @@ import { PhonesComponent } from './phones/phones.component';
 import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
-  // {path:"home",component:HomeComponent},
+  {path:"",component:PhonesComponent},
   {path:"about",component:AboutComponent},
   {path:"home",component:PhonesComponent},
   {path:"phones",component:PhonesComponent},
