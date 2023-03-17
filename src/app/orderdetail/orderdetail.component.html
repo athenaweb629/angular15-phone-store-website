@@ -26,6 +26,7 @@
                 </div>
               </div>
               <h5 class="card-title text-center display-6">Toplam Tutar: {{ order.TotalPrice }}</h5>
+              <button class="btn btn-danger" (click)="cancelOrder(order.Id)">Siparişi İptal Et</button>
             </div>
           </div>
         </div>
