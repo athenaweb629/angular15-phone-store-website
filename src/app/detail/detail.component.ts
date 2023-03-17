@@ -77,9 +77,14 @@ Swal = Swal;
       }
       else{
         CartList.filter(x=>x.Status==true).forEach((item)=>{
-          if(item.Phone.Id==this.BasketPhone?.Id) item.Quantity-= -quantity;
+          if(item.Phone.Id==this.BasketPhone?.Id)
+          if(item.Quantity+quantity<item.Phone.Stock){ item.Quantity-= -quantity;
           this.basketNumber=1;
           Swal.fire("Ürün Adedi Arttırıldı!", "Ürün Adedi Başarıyla Arttırıldı!", "success");
+        }
+        else{
+          Swal.fire("Ürün Adedi Arttırılmadı!", "Ürün Stoğu Yetersiz!", "error");
+        }
         })
       }
         
