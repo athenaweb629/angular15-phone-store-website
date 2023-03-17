@@ -90,6 +90,7 @@ export class CartComponent {
     CartList.filter(x=>x.Status==true).forEach((item)=>{
       if(item.Id==id){
         if(item.Quantity>=2){
+          if(item.Quantity>item.Phone.Stock)item.Quantity=item.Phone.Stock;
           item.Quantity--;
           item.TotalPrice -= item.Phone.Price;
           this.totalPrice-=item.Phone.Price;
