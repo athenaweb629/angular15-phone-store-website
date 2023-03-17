@@ -7,7 +7,7 @@ export class Cart{
     TotalPrice:Number;
     Status:Boolean=true
 
-    constructor(quantity:number,phone:Phone){
+    constructor(quantity:number,phone:any){
         this.TotalPrice=0;
         this.Id=cartId++,
         this.Phone=phone,

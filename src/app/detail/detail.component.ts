@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
 export class DetailComponent implements OnInit {
   @Input() phone:Phone | undefined;
   basketNumber=1;
- 
+   status:any=true;
 phoneList:Phone[] | undefined;
 Swal = Swal;
 
@@ -60,16 +60,29 @@ Swal = Swal;
 
     }
 
-    BasketPhone:any;
+    BasketPhone:Phone|undefined;
 
     addBasket(phoneid:any,quantity:any){
-     
+     this.status=true;
       this.BasketPhone=this.phoneList?.find(basketphone=>basketphone.Id===phoneid)
+      CartList.filter(x=>x.Status==true).forEach((item)=>{
+        if(item.Phone.Id==this.BasketPhone?.Id) this.status=false;
+      })
+      if(this.status){
         const basket= new Cart(quantity,this.BasketPhone);
  
         CartList.push(basket);
         this.basketNumber=1;
         Swal.fire("Ürün Sepete Eklendi!", "Ürün Başarıyla Sepete Eklendi!", "success");
+      }
+      else{
+        CartList.filter(x=>x.Status==true).forEach((item)=>{
+          if(item.Phone.Id==this.BasketPhone?.Id) item.Quantity-= -quantity;
+          this.basketNumber=1;
+          Swal.fire("Ürün Adedi Arttırıldı!", "Ürün Adedi Başarıyla Arttırıldı!", "success");
+        })
+      }
+        
 
     }
  
