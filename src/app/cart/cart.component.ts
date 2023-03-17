@@ -73,7 +73,31 @@ export class CartComponent {
       Swal.fire("Sipariş Onaylanmadı!", "Bu ürün veya ürünlerin stoğu yeteri kadar mevcut değil sepet onaylanamadı!", "error");
     }
   }
-  
+  plusPhone(id:any){
+    CartList.filter(x=>x.Status==true).forEach((item)=>{
+      if(item.Id==id){
+        if(item.Phone.Stock>item.Quantity){
+          item.Quantity++;
+          item.TotalPrice+=item.Phone.Price;
+          this.totalPrice+=item.Phone.Price;
+        }
+      }
+    })
+
+  }
+  minusPhone(id:any){
+   
+    CartList.filter(x=>x.Status==true).forEach((item)=>{
+      if(item.Id==id){
+        if(item.Quantity>=2){
+          item.Quantity--;
+          item.TotalPrice -= item.Phone.Price;
+          this.totalPrice-=item.Phone.Price;
+        }
+      }
+    })
+
+  }
   removeCart(id: any) {
     this.Swal.fire({
       title: 'Bu Ürünü Sepetten Çıkarmak İstediğinize Emin misiniz ?',

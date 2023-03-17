@@ -10,11 +10,26 @@
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title">{{phone.Phone.Brand}} {{phone.Phone.Model}}</h5>
+                                <h5 class="card-title fs-4">{{phone.Phone.Brand}} {{phone.Phone.Model}}</h5>
                                 <p class="card-text">{{phone.Phone.Description}}</p>
-                                <p class="card-text"><strong>Stok: </strong>{{phone.Phone.Stock}}</p>
-                                <p class="card-text"><strong>Adet: </strong>{{phone.Quantity}}</p>
-                                <p class="card-text"><strong>Toplam Fiyat: </strong>{{phone.TotalPrice}}</p>
+                                <p class="card-text fs-5"><strong>Stok: </strong>{{phone.Phone.Stock}}</p>
+                               
+                                  
+                                <div style="display: flex;">
+                                    <p class="card-text fs-5"><strong>Adet: </strong></p>
+                                   
+                                    <div class="ms-2">
+                                      <button class="btn btn-primary btn-sm" (click)="minusPhone(phone.Id)" type="button" id="button-addon1">-</button>
+                                      <input type="number" min="1" max="{{phone.Phone.Stock}}" #Quantity value="{{phone.Quantity}}" class="text-center bg-white text-primary" disabled placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                      <button class="btn btn-primary btn-sm" type="button" (click)="plusPhone(phone.Id)" id="button-addon1">+</button>
+                                    </div>
+                                  </div>
+                                  
+                                   
+                               
+                              
+                              
+                                <p class="card-text fs-5 mt-3"><strong>Toplam Fiyat: </strong>{{phone.TotalPrice}}</p>
                                 <button class="btn btn-danger" (click)="removeCart(phone.Id)">Ürünü Sepetten
                                     Çıkar</button>
                             </div>

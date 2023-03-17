@@ -4,7 +4,7 @@ export class Cart{
     Id:number | any;
     Phone: Phone;
     Quantity:number ;
-    TotalPrice:Number;
+    TotalPrice:any;
     Status:Boolean=true
 
     constructor(quantity:number,phone:any){
