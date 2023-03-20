@@ -26,7 +26,7 @@ export class CartComponent {
   list: Order[] | any;
   control: boolean = true;
   constructor(private cartService: CartService,private router: Router) {
-
+    this.totalPrice=0;
     CartList.filter(x => x.Status == true).forEach((item) => {
       this.totalPrice += item.TotalPrice;
     })

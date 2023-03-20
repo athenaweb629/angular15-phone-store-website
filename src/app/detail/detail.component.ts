@@ -82,6 +82,7 @@ export class DetailComponent implements OnInit {
         if (item.Phone.Id == this.BasketPhone?.Id) {     
           if (Number(item.Quantity) + Number(quantity) <= Number(item.Phone.Stock)) {
             item.Quantity -= -quantity;
+            item.TotalPrice=item.Phone.Price*item.Quantity;
             this.basketNumber = 1;
             Swal.fire("Ürün Adedi Arttırıldı!", "Ürün Adedi Başarıyla Arttırıldı!", "success");
           }
